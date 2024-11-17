@@ -1,0 +1,40 @@
+/*
+ * Theme Name: La Fabrique au Carré
+ * Description: Starter Theme to use with Timber
+ * Author: Martins
+ * Version: 1.0
+*/
+/* Basic Grid Layout */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.project-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.project-item h2 {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}

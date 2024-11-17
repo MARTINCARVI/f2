@@ -1,0 +1,30 @@
+{# Like a blueprint for all pages #}
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="{{ site.charset }}">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{ site.title }}</title>
+		{{ function('wp_head') }}
+	</head>
+    <body>
+        <header>
+            <h1>La Fabrique au Carré</h1>
+            <nav>
+                <a href="/projets">Projets</a>
+                <a href="/a-propos">À propos</a>
+                <a href="/contact">Contact</a>
+            </nav>
+        </header>
+
+        <main>
+            {% block content %}
+                {# Other templates will inject their content here #}
+            {% endblock %}
+        </main>
+
+        <footer>
+            {# Footer content #}
+        </footer>
+    </body>
+</html>
