@@ -3,16 +3,21 @@
     <div class="projects-grid">
         {% for project in projects %}
             <div class="project-item">
-                {% if function('has_post_thumbnail', project.id) %}
-                    <img 
-                        src="{{ function('get_the_post_thumbnail_url', project.id, 'project-grid') }}"
-                        alt="{{ project.title }}"
-                        loading="lazy"
-                        width="600"
-                        height="800"
-                    >
-                {% endif %}
-                <h2>{{ project.title }}</h2>
+                <a href="{{ function('get_permalink', project.id) }}">
+                 <div class="project-image">
+                        {% if function('has_post_thumbnail', project.id) %}
+                            <img 
+                                src="{{ function('get_the_post_thumbnail_url', project.id, 'project-grid') }}"
+                                alt="{{ project.title }}"
+                                loading="lazy"
+                            >
+                        {% endif %}
+                        
+                </div>
+                <div class="project-title">
+                    <h3>{{ project.title }}</h3>
+                </div>
+                </a>
             </div>
         {% endfor %}
     </div>

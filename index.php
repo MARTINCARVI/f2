@@ -35,6 +35,6 @@ $context['site_title'] = 'La Fabrique au Carré';
 
 $templates        = array( 'index.twig' );
 if ( is_home() ) {
-	array_unshift( $templates, 'front-page.twig', 'home.twig' );
+	array_unshift( $templates,'home.twig' );
 }
 Timber::render( $templates, $context );

@@ -52,3 +52,8 @@ add_filter('admin_post_thumbnail_html', function($content) {
 add_filter('big_image_size_threshold', function($threshold) {
     return 2000; // Maximum image width
 });
+
+function enqueue_theme_styles() {
+    wp_enqueue_style('main-style', get_stylesheet_uri());
+}
+add_action('wp_enqueue_scripts', 'enqueue_theme_styles');

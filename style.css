@@ -4,26 +4,30 @@
  * Author: Martins
  * Version: 1.0
 */
+
 /* Basic Grid Layout */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    padding: 20px;
-    max-width: 1400px;
-    margin: 0 auto;
+    background-color: red;
 }
 
-.project-item img {
+.project-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-image img {
     width: 100%;
     height: auto;
-    display: block;
+    object-fit: cover;
 }
 
-.project-item h2 {
-    margin-top: 8px;
-    font-size: 14px;
-    font-weight: normal;
+
+
+.project-title {
+    margin-top: 10px;
 }
 
 /* Responsive */
