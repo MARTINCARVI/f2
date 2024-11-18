@@ -5,12 +5,22 @@
  * Version: 1.0
 */
 
+.site-body {
+    font-family: Arial, sans-serif;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
 /* Basic Grid Layout */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     background-color: red;
+    justify-content: center;
+    align-items: start;
+    
 }
 
 .project-item {
@@ -22,6 +32,7 @@
     width: 100%;
     height: auto;
     object-fit: cover;
+    object-position: center;
 }
 
 

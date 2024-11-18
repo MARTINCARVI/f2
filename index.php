@@ -16,8 +16,12 @@
 $context          = Timber::context();
 // Get all projects
 $context['projects'] = Timber::get_posts(
-	['post_type' => 'project'],
+	['post_type' => 'project', 'posts_per_page' => -1,],
 );
+$context['categories'] = Timber::get_terms([
+    'taxonomy' => 'project_category',
+    'hide_empty' => true,
+]);
 
 // Add menu items
 $context['menu_items'] = [

@@ -16,6 +16,34 @@ Timber::$dirname = [ 'templates', 'views' ];
 
 new StarterSite();
 
+function register_project_category_taxonomy() {
+    $labels = [
+        'name' => 'Project Categories',
+        'singular_name' => 'Project Category',
+        'search_items' => 'Search Project Categories',
+        'all_items' => 'All Project Categories',
+        'parent_item' => 'Parent Project Category',
+        'parent_item_colon' => 'Parent Project Category:',
+        'edit_item' => 'Edit Project Category',
+        'update_item' => 'Update Project Category',
+        'add_new_item' => 'Add New Project Category',
+        'new_item_name' => 'New Project Category Name',
+        'menu_name' => 'Project Categories',
+    ];
+
+    $args = [
+        'hierarchical' => true,
+        'labels' => $labels,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'rewrite' => ['slug' => 'project-category'],
+    ];
+
+    register_taxonomy('project_category', ['project'], $args);
+}
+add_action('init', 'register_project_category_taxonomy');
+
 function register_project_post_type() {
     register_post_type('project', [
         'labels' => [
@@ -26,7 +54,8 @@ function register_project_post_type() {
         'has_archive' => true,
         'supports' => ['title', 'editor', 'thumbnail'],
         'menu_icon' => 'dashicons-building',
-        'rewrite' => ['slug' => 'projets']
+        'rewrite' => ['slug' => 'projets'],
+        'taxonomies' => ['project_category'],
     ]);
 }
 add_action('init', 'register_project_post_type');
