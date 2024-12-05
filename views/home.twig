@@ -1,0 +1,35 @@
+{% extends "base.twig" %}
+{% block content %}
+    <div class="category-filter">
+        <button class="filter-btn" data-category="all">All</button>
+        {% for category in categories %}
+            <button class="filter-btn" data-category="{{ category.slug }}">{{ category.name }}</button>
+        {% endfor %}
+    </div>
+    <div class="projects-grid">
+        {% for project in projects %}
+            <div class="project-item">
+                <a href="{{ function('get_permalink', project.id) }}">
+                    <div class="project-image">
+                            {% if function('has_post_thumbnail', project.id) %}
+                                <img 
+                                    src="{{ function('get_the_post_thumbnail_url', project.id, 'project-grid') }}"
+                                    alt="{{ project.title }}"
+                                    loading="lazy"
+                                >
+                            {% endif %}
+                            
+                    </div>
+                    <div class="project-title">
+                        <h3>{{ project.title }}</h3>
+                    </div>
+                    <div class="project-categories">
+                        {% for category in project.terms('project_category') %}
+                            <span>{{ category.name }}</span>
+                        {% endfor %}
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,165 @@
+/* 1. OVERALL */
+.site-body {
+    font-family: Arial, sans-serif;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+
+}
+
+/* 2. HEADER & NAVIGATION */
+/* Header */
+.main-header {
+    padding: 2rem 1rem;
+    text-align: center;
+    margin: 0 auto; /* This centers the header container */
+    background-color: rgb(110, 110, 218);
+
+}
+
+.site-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold; 
+}
+/* Navigation */
+.main-nav {
+    display: flex;
+    justify-content: center; /* Centers the navigation items */
+    gap: 2rem; /* Creates equal spacing between nav items */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #000;
+    font-size: 0.9rem;
+    position: relative;
+}
+/* Create the underline effect using a pseudo-element */
+.nav-link::after {
+    /* Create a line element */
+    content: '';
+    position: absolute;
+    width: 0;               /* Start with 0 width */
+    height: 1px;           /* Height of the underline */
+    bottom: -2px;         /* Position below the text */
+    left: 50%;           /* Start from the middle */
+    background-color: #333;
+    
+    /* Animation properties */
+    transition: width 0.3s ease;
+    transform: translateX(-50%);  /* Center the line */
+}
+
+/* When hovering, expand the line to full width */
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Categories Filter */
+.category-filter {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    background-color: green;
+}
+
+.filter-btn {
+    /* Remove default button styling */
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0 1rem;
+    cursor: pointer;
+    font: inherit;
+    
+    /* Text styling */
+    color: #333;
+    font-size: 0.9rem;
+    
+    /* This positioning is important for the underline effect */
+    position: relative;
+}
+
+/* Create the underline effect using a pseudo-element */
+.filter-btn::after {
+    /* Create a line element */
+    content: '';
+    position: absolute;
+    width: 0;               /* Start with 0 width */
+    height: 1px;           /* Height of the underline */
+    bottom: -2px;         /* Position below the text */
+    left: 50%;           /* Start from the middle */
+    background-color: #333;
+    
+    /* Animation properties */
+    transition: width 0.3s ease;
+    transform: translateX(-50%);  /* Center the line */
+}
+
+/* When hovering, expand the line to full width */
+.filter-btn:hover::after {
+    width: 100%;
+}
+
+/* Style for the active/selected category */
+.filter-btn.active::after {
+    width: 100%;    /* Keep the line visible for active state */
+}
+
+/* Basic Grid Layout */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    background-color: lightpink;
+    justify-content: center;
+    align-items: start;
+    
+}
+
+.project-item {
+    display: flex;
+    flex-direction: column;
+}
+.project-item a {
+    /* Remove default link styling */
+    text-decoration: none;  /* Removes the underline */
+    color: inherit;        /* Uses the parent element's text color */
+    
+    /* Optional: Improve the layout structure */
+    display: block;       /* Makes the link fill its container */
+}
+
+.project-image {
+    position: relative;
+    overflow: hidden;  /* This ensures the zoomed image stays within its container */
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;  /* This creates a smooth animation */
+    transform-origin: center;  /* Ensures the zoom happens from the center */
+}
+
+/* Create the zoom effect on hover */
+.project-item:hover .project-image img {
+    transform: scale(1.1);  /* Increases the image size by 10% */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
